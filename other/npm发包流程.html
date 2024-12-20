@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>npm发包流程 | 陈祺的个人博客</title>
+    <meta name="generator" content="VuePress 1.4.1">
+    <link rel="icon" href="/blog/favicon.ico">
+    <meta name="description" content="前端开发 陈祺的个人博客">
+    <link rel="preload" href="/blog/assets/css/0.styles.713b5711.css" as="style"><link rel="preload" href="/blog/assets/js/app.acb052c6.js" as="script"><link rel="preload" href="/blog/assets/js/2.608ee6fb.js" as="script"><link rel="preload" href="/blog/assets/js/55.9387c200.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.bf7ca624.js"><link rel="prefetch" href="/blog/assets/js/11.af3bdca8.js"><link rel="prefetch" href="/blog/assets/js/12.0838c4e3.js"><link rel="prefetch" href="/blog/assets/js/13.491948e1.js"><link rel="prefetch" href="/blog/assets/js/14.3620d991.js"><link rel="prefetch" href="/blog/assets/js/15.0a981652.js"><link rel="prefetch" href="/blog/assets/js/16.e2e797c2.js"><link rel="prefetch" href="/blog/assets/js/17.cd7bba40.js"><link rel="prefetch" href="/blog/assets/js/18.a6eb06cf.js"><link rel="prefetch" href="/blog/assets/js/19.fae0210d.js"><link rel="prefetch" href="/blog/assets/js/20.d9ab293d.js"><link rel="prefetch" href="/blog/assets/js/21.e74d6d2e.js"><link rel="prefetch" href="/blog/assets/js/22.5efcc216.js"><link rel="prefetch" href="/blog/assets/js/23.c212926a.js"><link rel="prefetch" href="/blog/assets/js/24.529b45b5.js"><link rel="prefetch" href="/blog/assets/js/25.4aa4edc2.js"><link rel="prefetch" href="/blog/assets/js/26.5436f7b8.js"><link rel="prefetch" href="/blog/assets/js/27.c76419fb.js"><link rel="prefetch" href="/blog/assets/js/28.ea7d53ae.js"><link rel="prefetch" href="/blog/assets/js/29.deb9f19b.js"><link rel="prefetch" href="/blog/assets/js/3.12b8ce65.js"><link rel="prefetch" href="/blog/assets/js/30.d2f589e8.js"><link rel="prefetch" href="/blog/assets/js/31.23440e38.js"><link rel="prefetch" href="/blog/assets/js/32.18f8b011.js"><link rel="prefetch" href="/blog/assets/js/33.da7da426.js"><link rel="prefetch" href="/blog/assets/js/34.27e37cfc.js"><link rel="prefetch" href="/blog/assets/js/35.6e883192.js"><link rel="prefetch" href="/blog/assets/js/36.687a2137.js"><link rel="prefetch" href="/blog/assets/js/37.49dd31e2.js"><link rel="prefetch" href="/blog/assets/js/38.6fb8da54.js"><link rel="prefetch" href="/blog/assets/js/39.2ed228f8.js"><link rel="prefetch" href="/blog/assets/js/4.4d64059e.js"><link rel="prefetch" href="/blog/assets/js/40.a27ad436.js"><link rel="prefetch" href="/blog/assets/js/41.5ee2e646.js"><link rel="prefetch" href="/blog/assets/js/42.ef2a8910.js"><link rel="prefetch" href="/blog/assets/js/43.1a795144.js"><link rel="prefetch" href="/blog/assets/js/44.1ead3e63.js"><link rel="prefetch" href="/blog/assets/js/45.90d2b3f3.js"><link rel="prefetch" href="/blog/assets/js/46.a0bf2303.js"><link rel="prefetch" href="/blog/assets/js/47.67c86d47.js"><link rel="prefetch" href="/blog/assets/js/48.5bf89177.js"><link rel="prefetch" href="/blog/assets/js/49.efbe37ba.js"><link rel="prefetch" href="/blog/assets/js/5.aecc6928.js"><link rel="prefetch" href="/blog/assets/js/50.236d742d.js"><link rel="prefetch" href="/blog/assets/js/51.3fe78255.js"><link rel="prefetch" href="/blog/assets/js/52.56f3cea6.js"><link rel="prefetch" href="/blog/assets/js/53.1a4b28a2.js"><link rel="prefetch" href="/blog/assets/js/54.180af4bd.js"><link rel="prefetch" href="/blog/assets/js/56.13171822.js"><link rel="prefetch" href="/blog/assets/js/57.2a870c52.js"><link rel="prefetch" href="/blog/assets/js/58.57d65abf.js"><link rel="prefetch" href="/blog/assets/js/59.a466346a.js"><link rel="prefetch" href="/blog/assets/js/6.b918da00.js"><link rel="prefetch" href="/blog/assets/js/60.39f764fc.js"><link rel="prefetch" href="/blog/assets/js/61.5a8a44e6.js"><link rel="prefetch" href="/blog/assets/js/62.a736fce9.js"><link rel="prefetch" href="/blog/assets/js/63.a1637e2e.js"><link rel="prefetch" href="/blog/assets/js/64.620df35c.js"><link rel="prefetch" href="/blog/assets/js/65.34ae4514.js"><link rel="prefetch" href="/blog/assets/js/66.5a2943e7.js"><link rel="prefetch" href="/blog/assets/js/67.38f7fbba.js"><link rel="prefetch" href="/blog/assets/js/7.52176edb.js"><link rel="prefetch" href="/blog/assets/js/8.0596310e.js"><link rel="prefetch" href="/blog/assets/js/9.cc7a106c.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.713b5711.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><img src="/blog/img/logo.png" alt="陈祺的个人博客" class="logo"> <span class="site-name can-hide">陈祺的个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/blog/js_docs/" class="nav-link">
+  JS
+</a></div><div class="nav-item"><a href="/blog/css_docs/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/blog/vue_docs/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/blog/node_docs/" class="nav-link">
+  Node
+</a></div><div class="nav-item"><a href="/blog/other/" class="nav-link router-link-active">
+  啥都有
+</a></div><div class="nav-item"><a href="/blog/skill/" class="nav-link">
+  小技巧
+</a></div><div class="nav-item"><a href="https://juejin.im/post/5d300d5ff265da1b7004e0c1" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="/blog/toolAddress/" class="nav-link">
+  第三方工具地址
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/blog/js_docs/" class="nav-link">
+  JS
+</a></div><div class="nav-item"><a href="/blog/css_docs/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/blog/vue_docs/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/blog/node_docs/" class="nav-link">
+  Node
+</a></div><div class="nav-item"><a href="/blog/other/" class="nav-link router-link-active">
+  啥都有
+</a></div><div class="nav-item"><a href="/blog/skill/" class="nav-link">
+  小技巧
+</a></div><div class="nav-item"><a href="https://juejin.im/post/5d300d5ff265da1b7004e0c1" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="/blog/toolAddress/" class="nav-link">
+  第三方工具地址
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blog/other/" class="sidebar-link">第一篇博客在这里,你找到了吗</a></li><li><a href="/blog/other/tool.html" class="sidebar-link">工具篇</a></li><li><a href="/blog/other/vuepress搭建个人博客并部署.html" class="sidebar-link">vuepress搭建个人博客并部署</a></li><li><a href="/blog/other/Git常用指令.html" class="sidebar-link">Git常用指令</a></li><li><a href="/blog/other/Markdown语法.html" class="sidebar-link">Markdown语法指南</a></li><li><a href="/blog/other/npm发包流程.html" class="active sidebar-link">npm发包流程</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/other/npm发包流程.html#创建项目" class="sidebar-link">创建项目</a></li><li class="sidebar-sub-header"><a href="/blog/other/npm发包流程.html#初始化" class="sidebar-link">初始化</a></li><li class="sidebar-sub-header"><a href="/blog/other/npm发包流程.html#包内容编写" class="sidebar-link">包内容编写</a></li><li class="sidebar-sub-header"><a href="/blog/other/npm发包流程.html#准备发布" class="sidebar-link">准备发布</a></li><li class="sidebar-sub-header"><a href="/blog/other/npm发包流程.html#发布" class="sidebar-link">发布</a></li><li class="sidebar-sub-header"><a href="/blog/other/npm发包流程.html#更新" class="sidebar-link">更新</a></li><li class="sidebar-sub-header"><a href="/blog/other/npm发包流程.html#删除" class="sidebar-link">删除</a></li></ul></li><li><a href="/blog/other/发行ERC20代币.html" class="sidebar-link">如何基于ERC20发行自己的代币</a></li><li><a href="/blog/other/移动端300ms延迟以及点击穿透.html" class="sidebar-link">移动端300ms延迟以及点击穿透</a></li><li><a href="/blog/other/来了解下字符编码的历史吧.html" class="sidebar-link">来了解下字符编码的历史吧</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="npm发包流程"><a href="#npm发包流程" class="header-anchor">#</a> npm发包流程</h1> <p>说起node,大家都很熟悉了,随着node一起下载安装的还有我们的包管理工具<code>npm</code>(node package manager).我们平时也是一直在使用npm的,但大部分时候,我们使用的都是别人的包.假如有一天我们自己写了一个包,想要上传到npm上面去,流程是怎么样的?</p> <h2 id="创建项目"><a href="#创建项目" class="header-anchor">#</a> 创建项目</h2> <p>创建一个文件夹并且进入这个文件夹</p> <div class="language- extra-class"><pre class="language-text"><code>mkdir publish-test &amp;&amp; cd $_
+</code></pre></div><h2 id="初始化"><a href="#初始化" class="header-anchor">#</a> 初始化</h2> <p>初始化生成一个package
+我用的是yarn,初始化命令如下:</p> <div class="language- extra-class"><pre class="language-text"><code>yarn init
+</code></pre></div><p>大家如果用的是npm的话就是:</p> <div class="language- extra-class"><pre class="language-text"><code>npm init
+</code></pre></div><p>一步步的将配置信息填入,也可以直接使用下面的命令快速生成</p> <div class="language- extra-class"><pre class="language-text"><code>yarn init -y
+</code></pre></div><p><img src="https://img-blog.csdnimg.cn/20191225095600904.png" alt="当前项目结构"></p> <p><strong>注意:这里的包名是不能和npm上的包有重复的,有时候包名相似的话npm也是会提醒你的,可以去npm官方搜索你的包名,看是否已经被使用了</strong></p> <h2 id="包内容编写"><a href="#包内容编写" class="header-anchor">#</a> 包内容编写</h2> <p>新建一个index.js文件,随便写一句代码,比如:</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">111</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="准备发布"><a href="#准备发布" class="header-anchor">#</a> 准备发布</h2> <p><a href="https://www.npmjs.com/" target="_blank" rel="noopener noreferrer">npm官方地址<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 点击官方地址去注册,并且通过邮箱的验证,若是不通过验证的话,后面的发布流程会提示你去验证,
+注册好npm账号以后,我们的发布流程就正式开始了.第一次发布的话,我们要使用如下命令:</p> <div class="language- extra-class"><pre class="language-text"><code>npm adduser
+</code></pre></div><p>以后的话,可以使用</p> <div class="language- extra-class"><pre class="language-text"><code>npm login
+</code></pre></div><p>在输入完 npm adduser 之后,就要求输入用户名/密码/邮箱,结果输入完以后出现了一个报错</p> <div class="language- extra-class"><pre class="language-text"><code>409 Conflict - PUT http://registry.npm.taobao.org/-/user/org.couchdb.user:ezlou - [conflict] User ezlou already exists
+</code></pre></div><p>这是因为我们目前的npm源是淘宝镜像,淘宝镜像是不允许我们上传自己包的,所以我们要切回原先的npm的镜像,如何查看当前的源:</p> <div class="language- extra-class"><pre class="language-text"><code>npm config get registry
+</code></pre></div><p><img src="https://img-blog.csdnimg.cn/20191225101129505.png" alt="当前源是淘宝镜像"></p> <p>可以看到我们当前源是淘宝镜像,我们需要将其切换到原先的源</p> <div class="language- extra-class"><pre class="language-text"><code>npm config set registry https://registry.npmjs.org
+</code></pre></div><p>切换完以后,重新登录,出现了如下的提示,说明登录成功
+<img src="https://img-blog.csdnimg.cn/20191225101730542.png" alt="登录成功"></p> <h2 id="发布"><a href="#发布" class="header-anchor">#</a> 发布</h2> <div class="language- extra-class"><pre class="language-text"><code>npm publish
+</code></pre></div><p>出现如下图所示:</p> <p><img src="https://img-blog.csdnimg.cn/20191225101859553.png" alt="发布成功"></p> <p>可以看到 包名+版本 显示在终端上了,说明我们的包已经发布成功了,然后我们去npm个人中文看自己发布的包 <a href="https://www.npmjs.com/settings/xxx/packages" target="_blank" rel="noopener noreferrer">https://www.npmjs.com/settings/xxx/packages<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 这里将xxx替换成自己的用户名</p> <h4 id="可能会踩到的坑"><a href="#可能会踩到的坑" class="header-anchor">#</a> 可能会踩到的坑</h4> <p>如下图:</p> <p><img src="https://img-blog.csdnimg.cn/20191225103900189.png" alt="没有权限"></p> <p>说明你没有发布这个包的权限,很有可能就是因为你的包名和别人的包名重复了.我们修改下包名,在其后面加上一个2,然后继续发布</p> <p><img src="https://img-blog.csdnimg.cn/2019122510425146.png" alt="包名过于相似的报错"></p> <p>这时候可能会提示包名过于类似,并且它建议我们可以使用 <code>@我们的用户名/包名</code> 这样的格式去发布自己的包.并且发布的时候命令变成了</p> <div class="language- extra-class"><pre class="language-text"><code>npm publish --access=public
+</code></pre></div><p>这句话的意思是将我们发布的包变成一个公开包,让大家都能访问到.因为现在我们的包名是 <code>@我们的用户名/包名</code>  这种格式,这种以用户名自己名字开头的包默认是当作私有包的,而私有包是需要收费的,所以如果这时候我们不加上后面的修饰的话,就会出现如下的报错:</p> <p><img src="https://img-blog.csdnimg.cn/20191225104754347.png" alt="这是一个付费功能啊"></p> <p>我们加上 <code>--access=public</code>,将其变成一个公开包,重新发布一下,可以看到发布成功了!
+自此,我们自己的包就发布成功了,过一会儿别人就可以通过命令下载安装我们的包了</p> <h2 id="更新"><a href="#更新" class="header-anchor">#</a> 更新</h2> <p>如果我们的代码有了更新,我们可以重新将包发布到npm上去,但是注意,包的版本号必须和之前是不一样的,npm不允许上传相同版本的包.这里更新包版本也有两种方式</p> <ol><li>直接在package.json 中手动修改包的版本</li> <li>通过npm指令来修改</li></ol> <div class="language- extra-class"><pre class="language-text"><code>npm version patch  //补丁版本,最后一位数加1 
+npm version minor  //增加了新功能 中间的数字加1
+npm version major //大改动,不向下兼容 第一位数字加1
+</code></pre></div><p>我们根据这次包的修改内容,来决定我们这次更新的版本号</p> <h2 id="删除"><a href="#删除" class="header-anchor">#</a> 删除</h2> <p>假如我们要删除自己发布的包的话,使用下面的命令</p> <div class="language- extra-class"><pre class="language-text"><code>npm unpublish --force
+</code></pre></div><p><strong>注意:只有在发布的24小时内可以删除包</strong></p> <p>基本上,一个包的发布流程就是以上这些啦!</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/other/Markdown语法.html" class="prev">
+        Markdown语法指南
+      </a></span> <span class="next"><a href="/blog/other/发行ERC20代币.html">
+        如何基于ERC20发行自己的代币
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.acb052c6.js" defer></script><script src="/blog/assets/js/2.608ee6fb.js" defer></script><script src="/blog/assets/js/55.9387c200.js" defer></script>
+  </body>
+</html>
